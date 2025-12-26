@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuna's Tavern | Skyrim Modding Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dragon-gold: #b29600;
+            --iron-dark: #1a1a1a;
+            --parchment: #e8d5b5;
+            --ink: #3a2e24;
+            --border-heavy: 4px double #5c4b37;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Crimson Text', serif;
+            background-color: var(--iron-dark);
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); 
+            color: var(--ink);
+            margin: 0;
+            padding: 0;
+            cursor: url('https://cur.cursors-4u.net/games/gam-11/gam1071.cur'), auto;
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Nav */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 5px solid var(--dragon-gold);
+            text-align: center;
+        }
+
+        h1 { font-family: 'Cinzel', serif; font-size: 4.5rem; color: var(--dragon-gold); margin: 0; text-shadow: 3px 3px 8px #000; }
+        .subtitle { color: #ccc; font-style: italic; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
+
+        nav {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            z-index: 100;
+            border-bottom: 2px solid var(--dragon-gold);
+        }
+
+        nav a {
+            color: #d1d1d1;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--dragon-gold); text-shadow: 0 0 8px var(--dragon-gold); }
+
+        /* Layout */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        .section-box {
+            background-color: var(--parchment);
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            padding: 30px;
+            margin-bottom: 40px;
+            border: var(--border-heavy);
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.6);
+        }
+
+        h2 { font-family: 'Cinzel', serif; color: var(--dragon-gold); text-align: center; font-size: 2.5rem; margin-bottom: 30px; }
+        h3 { font-family: 'Cinzel', serif; color: #2c1e14; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px; margin-top: 0;}
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+        /* Utility Components */
+        .category-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            color: white;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .beginner { background: #3d5a3a; }
+        .intermediate { background: #8e5a2d; }
+        .advanced { background: #6b201a; }
+
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .gallery-item { border: 2px solid var(--dragon-gold); overflow: hidden; position: relative; height: 180px; background: #000; transition: 0.3s; }
+        .gallery-item:hover { transform: scale(1.05); z-index: 10; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .gallery-item:hover img { opacity: 1; }
+        .gallery-label { position: absolute; bottom: 0; background: rgba(0,0,0,0.8); color: var(--dragon-gold); width: 100%; text-align: center; font-family: 'Cinzel', serif; font-size: 0.7rem; padding: 5px 0; }
+
+        /* Table */
+        table { width:100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; padding: 10px; border-bottom: 2px solid var(--ink); font-family: 'Cinzel', serif; }
+        td { padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+
+        footer { background: #000; color: #666; padding: 40px; text-align: center; font-family: 'Cinzel', serif; border-top: 3px solid var(--dragon-gold); margin-top: 50px;}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Tuna's Tavern</h1>
+    <div class="subtitle">A Skyrim Modding Sanctuary</div>
+</header>
+
+<nav>
+    <a href="#tips">Tips</a>
+    <a href="#comparison">The Ledger</a>
+    <a href="#nolvus">Nolvus Guide</a>
+    <a href="#forge">The Forge</a>
+    <a href="#gallery">Gallery</a>
+</nav>
+
+<div class="container">
+    
+    <div id="loading-tip" class="section-box" style="background: rgba(0,0,0,0.9); color: #fff; text-align: center; border-color: var(--dragon-gold); min-height: 100px; display: flex; align-items: center; justify-content: center; flex-direction: column; margin-bottom: 50px;">
+        <span style="font-family: 'Cinzel', serif; color: var(--dragon-gold); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px;">— Tip of the Day —</span>
+        <p id="tip-text" style="font-style: italic; font-size: 1.2rem; margin: 0; color: #e0e0e0;">"Loading knowledge from the Elder Scrolls..."</p>
+    </div>
+
+    <section id="tips">
+        <h2>Modding Knowledge</h2>
+        <div class="grid">
+            <div class="section-box">
+                <span class="category-tag beginner">Beginner</span>
+                <h3>The Root Folder</h3>
+                <p>Install Skyrim outside of <code>Program Files</code> to avoid Windows permission errors. Use a folder like <code>C:\Games\Skyrim</code>.</p>
+            </div>
+            <div class="section-box">
+                <span class="category-tag intermediate">Intermediate</span>
+                <h3>SSEEdit Cleaning</h3>
+                <p>Clean your Master files! Removing "Identical to Master" records can prevent subtle crashes in heavily modded games.</p>
+            </div>
+            <div class="section-box">
+                <span class="category-tag advanced">Advanced</span>
+                <h3>MCO & Animation</h3>
+                <p>When using ADXP/MCO, ensure your 'Distar Experience' is installed correctly or your combat will feel like vanilla ice-skating.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison">
+        <div class="section-box">
+            <h3>The Great Modlist Ledger</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modlist</th>
+                        <th>Focus</th>
+                        <th>Requirement</th>
+                        <th>Difficulty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Nolvus</strong></td><td>AAA Visuals</td><td style="color:#6b201a">High (RTX 3080+)</td><td>Easy Install</td></tr>
+                    <tr><td><strong>Lorerim</strong></td><td>Hardcore RPG</td><td>Moderate</td><td style="color:#6b201a">Brutal</td></tr>
+                    <tr><td><strong>Invicta</strong></td><td>Modern Combat</td><td>High</td><td>Balanced</td></tr>
+                    <tr><td><strong>Licentia</strong></td><td>Content/NSFW</td><td>Moderate</td><td>Standard</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="nolvus">
+        <div class="section-box">
+            <h3>The Nolvus Guide</h3>
+            <p>Nolvus transforms Skyrim into a modern masterpiece. Follow these 3 golden rules for a successful install:</p>
+            <ul style="list-style-type: '📜 '; padding-left: 20px;">
+                <li><strong>SSD is Mandatory:</strong> Never install Nolvus on an HDD; the script lag will be unplayable.</li>
+                <li><strong>Instance Path:</strong> Set your installation to <code>C:\Nolvus</code>, not inside your Steam folder.</li>
+                <li><strong>Pagefile:</strong> Set a manual Windows Pagefile of 40,000MB to prevent crashes.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="forge">
+        <div class="section-box">
+            <h3>🛠️ The Blacksmith's Forge (Troubleshooting)</h3>
+            <div class="grid">
+                <div>
+                    <h4 style="color:#6b201a">❌ T-Posing</h4>
+                    <p>Run Nemesis/Pandora. This happens when the game has new animations but the behavior files haven't been generated.</p>
+                </div>
+                <div>
+                    <h4 style="color:#6b201a">❌ Purple Textures</h4>
+                    <p>Out of VRAM. Restart the game or use a lower-quality texture preset in your modlist launcher.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="section-box">
+            <h3>Hall of Heroes</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1614728263952-84ea206f99b6?auto=format&fit=crop&w=500"><div class="gallery-label">Lorerim Forest</div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&w=500"><div class="gallery-label">Nolvus City</div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502134273026-acb7ace1f99a?auto=format&fit=crop&w=500"><div class="gallery-label">Invicta Combat</div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500"><div class="gallery-label">Licentia Horizons</div></div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    &copy; 2025 Tuna's Tavern | Built for the Modding Community | May your roads lead to warm sands.
+</footer>
+
+<script>
+    const tips = [
+        "Always use a Mod Manager like MO2. Never manually drag files into Data.",
+        "Running out of VRAM? Use VRAMr to compress 8K textures into 2K.",
+        "Always run Nemesis after adding new combat animations to avoid T-Posing.",
+        "Keep your Skyrim install outside of 'Program Files' to avoid permission errors.",
+        "DynDOLOD 3 is the secret to removing 'pop-in' for distant objects.",
+        "Lorerim is built on Requiem; don't fight giants at level 1.",
+        "Nolvus requires a massive Pagefile. Set yours to 40GB for stability.",
+        "Use BethINI to optimize your settings for actual performance gains."
+    ];
+
+    function getNewTip() {
+        const randomIndex = Math.floor(Math.random() * tips.length);
+        document.getElementById('tip-text').innerText = `"${tips[randomIndex]}"`;
+    }
+
+    window.onload = getNewTip;
+</script>
+
+</body>
+</html>
